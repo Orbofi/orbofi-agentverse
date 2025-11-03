@@ -25,7 +25,9 @@ import requests
 from ta.trend import EMAIndicator, MACD
 from ta.momentum import RSIIndicator
 from ta.volatility import AverageTrueRange, BollingerBands
+
 from openai import OpenAI
+from letta_client import Letta
 
 # --------------------------------------------------
 # CONFIGURATION
@@ -78,6 +80,15 @@ if not OPENAI_KEY:
     raise RuntimeError("OPENAI_API_KEY environment variable is required for backtest.")
 
 client = OpenAI(api_key=OPENAI_KEY)
+
+# Letta Reasoning Models
+LETTA_API_KEY = os.getenv("LETTA_API_KEY")
+DEFAULT_LETTA_AGENT_ID = os.getenv("DEFAULT_LETTA_AGENT_ID")  
+  
+if not LETTA_API_KEY:
+    raise RuntimeError("OPENAI_API_KEY environment variable is required for backtest.")
+
+letta_client = Letta(token=LETTA_API_KEY)
 
 # Global lock to protect shared state in async loop
 state_lock: Lock = Lock()
