@@ -598,6 +598,53 @@ def llm_decision(sys_prompt: str, user_prompt: str) -> Dict[str, Any]:
     )
     return json.loads(r.choices[0].message.content)
 
+    
+
+def letta_decision(agent_id, sys_prompt, user_prompt, retries=1):
+    full_response = ""
+    for attempt in range(retries + 1):
+        try:
+            print(f"\n{Fore.CYAN}🤖 Streaming Letta Decision for {DEFAULT_LETTA_AGENT_ID}{Style.RESET_ALL}")
+            stream = client.agents.messages.create_stream(
+                agent_id=DEFAULT_LETTA_AGENT_ID,
+                messages=[
+                    {"role": "system", "content": sys_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                stream_tokens=True,
+            )
+
+            for chunk in stream:
+                print(chunk)
+                if getattr(chunk, "message_type", None) == "assistant_message":
+                    content_piece = getattr(chunk, "content", "")
+                    full_response += content_piece
+                    print(f"{Fore.YELLOW}{content_piece}{Style.RESET_ALL}", end="", flush=True)
+
+                if getattr(chunk, "message_type", None) == 'reasoning_message':
+                    reasoning_content_piece = getattr(chunk, "content", "")
+                    full_response += reasoning_content_piece
+                    print(f"{Fore.RED}{reasoning_content_piece}{Style.RESET_ALL}", end="", flush=True)
+
+
+            print(f"\n{Fore.GREEN}✅ Stream complete.{Style.RESET_ALL}")
+            cleaned = (
+                full_response.strip()
+                .replace("```json", "")
+                .replace("```", "")
+                .strip()
+            )
+            parsed = json.loads(cleaned)
+
+            # ✅ Extract reasoning from the JSON itself
+            reasoning_text = parsed.get("reason", "(no reason provided)")
+            return cleaned, parsed, reasoning_text
+
+        except Exception as e:
+            print(f"{Fore.RED}⚠️ Letta failed (attempt {attempt+1}/{retries+1}): {e}{Style.RESET_ALL}")
+            time.sleep(2)
+    return {}, "(Letta failed — no reasoning)"
+
 
 async def llm_decision_async(sys_prompt: str, user_prompt: str) -> tuple[Dict[str, Any], str, str]:
     """Async wrapper around llm_decision, with fallback HOLD on error."""
