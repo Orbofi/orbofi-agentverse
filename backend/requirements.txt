@@ -1,0 +1,27 @@
+# Core scientific + data stack
+pandas
+numpy
+
+# HTTP + concurrency
+requests
+aiohttp
+asyncio
+
+# Technical indicators
+ta
+
+# Ethereum signing & ABI encoding (for AsterDex)
+eth-account
+eth-abi
+web3
+
+# OpenAI GPT API
+openai
+
+# Utilities
+colorama
+tqdm
+
+# Optional visualization / Flask backend sync
+Flask
+Flask-Cors
