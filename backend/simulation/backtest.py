@@ -610,53 +610,6 @@ def llm_decision(sys_prompt: str, user_prompt: str) -> Dict[str, Any]:
     return json.loads(r.choices[0].message.content)
 
     
-
-def letta_decision(agent_id, sys_prompt, user_prompt, retries=1):
-    full_response = ""
-    for attempt in range(retries + 1):
-        try:
-            print(f"\n{Fore.CYAN}🤖 Streaming Letta Decision for {DEFAULT_LETTA_AGENT_ID}{Style.RESET_ALL}")
-            stream = letta_client.agents.messages.create_stream(
-                agent_id=DEFAULT_LETTA_AGENT_ID,
-                messages=[
-                    {"role": "system", "content": sys_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                stream_tokens=True,
-            )
-
-            for chunk in stream:
-                print(chunk)
-                if getattr(chunk, "message_type", None) == "assistant_message":
-                    content_piece = getattr(chunk, "content", "")
-                    full_response += content_piece
-                    print(f"{Fore.YELLOW}{content_piece}{Style.RESET_ALL}", end="", flush=True)
-
-                if getattr(chunk, "message_type", None) == 'reasoning_message':
-                    reasoning_content_piece = getattr(chunk, "content", "")
-                    full_response += reasoning_content_piece
-                    print(f"{Fore.RED}{reasoning_content_piece}{Style.RESET_ALL}", end="", flush=True)
-
-
-            print(f"\n{Fore.GREEN}✅ Stream complete.{Style.RESET_ALL}")
-            cleaned = (
-                full_response.strip()
-                .replace("```json", "")
-                .replace("```", "")
-                .strip()
-            )
-            parsed = json.loads(cleaned)
-
-            # ✅ Extract reasoning from the JSON itself
-            reasoning_text = parsed.get("reason", "(no reason provided)")
-            return cleaned, parsed, reasoning_text
-
-        except Exception as e:
-            print(f"{Fore.RED}⚠️ Letta failed (attempt {attempt+1}/{retries+1}): {e}{Style.RESET_ALL}")
-            time.sleep(2)
-    return {}, "(Letta failed — no reasoning)"
-
-
 async def llm_decision_async(sys_prompt: str, user_prompt: str) -> tuple[Dict[str, Any], str, str]:
     """Async wrapper around llm_decision, with fallback HOLD on error."""
     try:
@@ -677,6 +630,131 @@ async def llm_decision_async(sys_prompt: str, user_prompt: str) -> tuple[Dict[st
             "",
             "",
         )
+
+
+def letta_decision(sys_prompt, user_prompt, retries=1):
+    full_response = ""
+    thinking_log = []  # 🧠 store structured messages in order
+
+    for attempt in range(retries + 1):
+        try:
+            print(f"\n🤖 Streaming Letta Decision for {DEFAULT_LETTA_AGENT_ID}")
+            stream = client_letta.agents.messages.create_stream(
+                agent_id=DEFAULT_LETTA_AGENT_ID,
+                messages=[
+                    {"role": "system", "content": sys_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                stream_tokens=True,
+            )
+
+            buffers = {
+                "reasoning_message": "",
+                "tool_call_message": "",
+                "tool_return_message": "",
+            }
+
+            last_time = time.time()
+
+            for chunk in stream:
+                msg_type = getattr(chunk, "message_type", None)
+            
+                # 🧠 REASONING MESSAGE
+                if msg_type == "reasoning_message":
+                    piece = getattr(chunk, "reasoning", "") or ""
+                    if isinstance(piece, str) and piece.strip():
+                        buffers["reasoning_message"] += piece
+                        if (time.time() - last_time > 0.4) or piece.endswith((".", "!", "?")):
+                            clean = buffers["reasoning_message"].strip()
+                            if clean:
+                                thinking_log.append({"type": "reasoning_message", "content": clean})
+                                # print(f"{Fore.LIGHTBLACK_EX}[Reasoning]{Style.RESET_ALL} {clean}")
+                                sys.stdout.flush()
+                            buffers["reasoning_message"] = ""
+                            last_time = time.time()
+            
+                # 🧩 TOOL CALL
+                elif msg_type == "tool_call_message":
+                    args = ""
+                    if hasattr(chunk, "tool_call") and getattr(chunk.tool_call, "arguments", None):
+                        args = chunk.tool_call.arguments
+                    elif hasattr(chunk, "tool_calls") and isinstance(chunk.tool_calls, dict):
+                        args = chunk.tool_calls.get("arguments", "")
+                    args = args or ""
+                    if isinstance(args, str):
+                        buffers["tool_call_message"] += args
+                    if (time.time() - last_time > 0.4) or str(args).endswith(("}", "]")):
+                        clean = buffers["tool_call_message"].strip()
+                        if clean:
+                            thinking_log.append({"type": "tool_call_message", "content": clean})
+                            # print(f"{Fore.CYAN}[ToolCall]{Style.RESET_ALL} {clean}")
+                            sys.stdout.flush()
+                        buffers["tool_call_message"] = ""
+                        last_time = time.time()
+            
+                # 🧰 TOOL RETURN
+                elif msg_type == "tool_return_message":
+                    result_piece = getattr(chunk, "tool_return", "") or getattr(chunk, "tool_response", "") or ""
+                    if isinstance(result_piece, str) and result_piece.strip():
+                        thinking_log.append({"type": "tool_return_message", "content": result_piece.strip()})
+                        # print(f"{Fore.YELLOW}[ToolReturn]{Style.RESET_ALL} {result_piece.strip()}")
+                        sys.stdout.flush()
+            
+                # 🗣️ ASSISTANT RESPONSE
+                elif msg_type == "assistant_message":
+                    piece = getattr(chunk, "content", "") or ""
+                    if isinstance(piece, str) and piece.strip():
+                        full_response += piece
+                        # print(f"{Fore.GREEN}{piece}{Style.RESET_ALL}", end="", flush=True)
+                        sys.stdout.flush()
+            # Flush remaining fragments
+            for key, val in buffers.items():
+                if val.strip():
+                    thinking_log.append({
+                        "type": key,
+                        "content": val.strip()
+                    })
+
+            print("\n✅ Stream complete.")
+
+            # 🧹 Clean response JSON
+            cleaned = full_response.strip()
+            if cleaned.startswith("```"):
+                cleaned = cleaned.strip("`").replace("json\n", "", 1)
+            parsed = json.loads(cleaned)
+
+            # Extract short reason
+            reasoning_text = parsed.get("reason", "(no reason provided)")
+
+            thinking_log = merge_thinking_log(thinking_log)
+
+            # ✅ Return structured thoughts
+            return parsed, reasoning_text, thinking_log
+
+        except Exception as e:
+            print(f"⚠️ Letta failed (attempt {attempt+1}/{retries+1}): {e}")
+            time.sleep(1)
+
+    # fallback
+    return {"action": "HOLD", "symbol": "", "quoteOrderQty": 0, "reason": "Letta failed"}, "(Letta failed — HOLD)", []
+
+
+async def letta_decision_async(sys_prompt, user_prompt, retries=2, timeout=LETTTA_TIMEOUT_SEC):
+    for attempt in range(retries):
+        try:
+            # Letta runs in a thread but may take up to 15 min
+            result = await asyncio.wait_for(
+                asyncio.to_thread(letta_decision, sys_prompt, user_prompt),
+                timeout=timeout
+            )
+            return result
+        except asyncio.TimeoutError:
+            print(f"⚠️ Letta timed out (attempt {attempt+1}/{retries}) after {timeout}s — retrying...")
+        except Exception as e:
+            print(f"⚠️ Letta failed (attempt {attempt+1}/{retries}): {e}")
+        await asyncio.sleep(2 * (attempt + 1))
+    print("❌ Letta permanently failed after retries — HOLD fallback")
+    return {"action": "HOLD", "symbol": "", "quoteOrderQty": 0, "reason": "Letta failed"}, "(Letta failed — HOLD)", []
 
 
 # --------------------------------------------------
