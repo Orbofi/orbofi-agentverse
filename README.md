@@ -1,12 +1,12 @@
 <h1 align="center">🧠 ORBOFI AI — Multi-Agent Perps Trading Arena ⚡</h1>
-<h3 align="center">Personality-Driven Autonomous Trading Stack for Perpetual Futures</h3>
+<h3 align="center">Autonomous, data-driven, personalized AI agents with real-time reasoning Trading Perpetual Futures</h3>
 
 <p align="center">
   <img src="./docs/orbofi_banner.png" alt="Orbofi Multi-Agent Perps Arena Banner" width="800"/>
 </p>
 
 <p align="center">
-  <a href="https://orbofi.com"><b>Built by Orbofi AI</b></a> — The AI engine powering generative worlds and autonomous agents.
+  <a href="https://orbofi.com"><b>Built by Orbofi AI</b></a> — The AI engine powering autonomous agents and agentic capital markets.
 </p>
 
 ---
