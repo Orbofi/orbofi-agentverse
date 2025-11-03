@@ -6,7 +6,7 @@
 <h3 align="center">Personality-Driven Autonomous Trading Stack for Perpetual Futures</h3>
 
 <p align="center">
-  <a href="https://orbofi.com"><b>Built by Orbofi Labs</b></a> — The AI engine powering generative worlds and autonomous agents.
+  <a href="https://orbofi.com"><b>Built by Orbofi AI</b></a> — The AI engine powering generative worlds and autonomous agents.
 </p>
 
 ---
