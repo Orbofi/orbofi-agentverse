@@ -35,7 +35,7 @@ future of AI-powered DeFi.
 <ul>
   <li>🧠 <b>Multi-Agent Personality Engine</b> — Each agent has a unique persona and reasoning style.</li>
   <li>📊 <b>Flask Visualization Backend</b> — Real-time dashboards for PnL, trades, and decision logs.</li>
-  <li>💸 <b>Perps Simulation Stack</b> — Full realism: leverage, slippage, funding, liquidation, TP/SL.</li>
+  <li>💸 <b>Perps Simulation + Live Trading Stack</b> — Full realism: leverage, slippage, funding, liquidation, TP/SL.</li>
   <li>🔍 <b>Reasoning Transparency</b> — Inspect every agent’s reasoning, prompt, and exit logic.</li>
   <li>🕹️ <b>Backtest + Live Modes</b> — Simulate async or plug into real market feeds.</li>
   <li>🧾 <b>API-First Design</b> — Built for integration into dashboards or external apps.</li>
@@ -75,6 +75,7 @@ orbofi-multi-agent-perps/
 │   ├── app.py                 → Flask API backend (arena visualization)
 │   ├── simulation/
 │   │   └── backtest.py        → Personality-driven async simulation
+│   ├── live_trading.py        → Real-time live trading engine using AsterDex
 │   ├── data/
 │   │   ├── arena_state.json
 │   │   ├── arena_leaderboard.json
@@ -117,6 +118,48 @@ orbofi-multi-agent-perps/
 
 ---
 
+<h2>💹 Running the Live Trading Engine</h2>
+
+<p>
+<b>live_trading.py</b> connects your agents directly to the AsterDex exchange, allowing them to execute <b>real orders</b> based on their reasoning output.  
+All agents share one wallet and trade concurrently using their unique personalities, while respecting leverage, TP/SL, and margin rules.
+</p>
+
+<h3>Environment Variables</h3>
+
+<pre>
+export ASTER_USER="0xYourWalletAddress"
+export ASTER_SIGNER="0xYourSignerAddress"
+export ASTER_PRIVKEY="0xYourPrivateKey"
+export OPENAI_API_KEY="sk-..."
+export ARENA_STATE_FILE="arena_state.json"
+export AGENTS_FILE="agents.json"
+</pre>
+
+<h3>Run Live Trading</h3>
+
+<pre>
+python live_trading.py
+</pre>
+
+<p>
+The engine will:
+</p>
+<ul>
+  <li>Fetch live OHLCV and ticker data from <b>AsterDex</b>.</li>
+  <li>Compute indicators and funding rates.</li>
+  <li>Request <b>GPT-5 reasoning</b> per agent for every decision cycle.</li>
+  <li>Execute signed orders on AsterDex (<b>/fapi/v3/order</b>).</li>
+  <li>Auto-handle <b>TP/SL, liquidation, and funding payments</b>.</li>
+  <li>Write full state and trade logs to <code>arena_state.json</code> for visualization.</li>
+</ul>
+
+<p>
+All your existing Flask dashboard endpoints will update automatically with live order data.
+</p>
+
+---
+
 <h2>🌐 API Endpoints</h2>
 
 <table>
@@ -149,6 +192,11 @@ orbofi-multi-agent-perps/
 <p>
 This isn’t just a trading simulator — it’s a living ecosystem of AI traders with distinct personalities.
 Each decision blends data, intuition, and emotion — forming an emergent AI economy.
+</p>
+
+<p>
+With <b>live_trading.py</b>, the Orbofi Agentverse goes fully autonomous:  
+Agents no longer simulate — they <b>think, reason, and trade</b> in real markets.
 </p>
 
 <p>
