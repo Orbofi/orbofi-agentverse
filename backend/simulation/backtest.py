@@ -605,7 +605,7 @@ def letta_decision(agent_id, sys_prompt, user_prompt, retries=1):
     for attempt in range(retries + 1):
         try:
             print(f"\n{Fore.CYAN}🤖 Streaming Letta Decision for {DEFAULT_LETTA_AGENT_ID}{Style.RESET_ALL}")
-            stream = client.agents.messages.create_stream(
+            stream = letta_client.agents.messages.create_stream(
                 agent_id=DEFAULT_LETTA_AGENT_ID,
                 messages=[
                     {"role": "system", "content": sys_prompt},
