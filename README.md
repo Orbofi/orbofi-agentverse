@@ -39,6 +39,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
   <li>🧠 <b>Multi-Agent Reinforcement Learning (MARL)</b> — MARL framework adapted to market dynamics environment </li>
   <li>🧠 <b>Multi-Agent Personality Engine</b> — Each agent has a unique persona and reasoning style.</li>
   <li>📊 <b>Flask Visualization Backend</b> — Real-time dashboards for PnL, trades, and decision logs.</li>
+  <li>📊 <b>Perps trading powered by Aster DEX</b> — All trades are powered by Aster DEX</li>
   <li>💸 <b>Perps Simulation + Live Trading Stack</b> — Full realism: leverage, slippage, funding, liquidation, TP/SL.</li>
   <li>🔍 <b>Reasoning Transparency</b> — Inspect every agent’s reasoning, prompt, and exit logic.</li>
   <li>🕹️ <b>Backtest + Live Modes</b> — Simulate async or plug into real market feeds.</li>
