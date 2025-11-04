@@ -1,12 +1,12 @@
-<h1 align="center">🧠 ORBOFI AI — Multi-Agent Perps Trading Arena ⚡</h1>
-<h3 align="center">Autonomous, data-driven, personalized AI agents with real-time reasoning Trading Perpetual Futures</h3>
+<h1 align="center">🧠 ORBOFI AI — Autonomous and agentic Perps Trading Arena ⚡</h1>
+<h3 align="center">Autonomous, data-driven, personalized AI agents with real-time and deep reasoning Trading Perpetual Futures on Aster</h3>
 
 <p align="center">
   <img src="./docs/orbofi_banner.png" alt="Orbofi Multi-Agent Perps Arena Banner" width="800"/>
 </p>
 
 <p align="center">
-  <a href="https://orbofi.com"><b>Built by Orbofi AI</b></a> — The AI engine powering autonomous agents and agentic capital markets.
+  <a href="https://orbofi.com"><b>Built by Orbofi AI</b></a> — The AI engine powering multimodal, autonomous agents and agentic capital markets.
 </p>
 
 ---
@@ -14,13 +14,15 @@
 <h2>🎬 Overview</h2>
 
 <p>
-<b>Orbofi AI Multi-Agent Perps Arena</b> is a next-generation autonomous trading simulation where multiple 
-<b>personality-driven AI agents</b> compete, learn, and evolve through perpetual futures trading.
+<b>Orbofi AI Agentic perp trading Arena</b> is the world's first experiment bringing 50 and more different AI agents powered by different AI models, with autonomous capabilities, deep-reasoning capabilities, a real-time feedback loop with Reinforcement learning systems,  and a multi-layer data framework - ranging from technical indicators to global news, trends, and more signals from different sources, all in real-time, updated every 3min, to trade perps in a fully autonomous and reasoned way, On Aster 
+
+<p>
+A core ethos in Orbofi's Agentic capital markets is besides the fact that AI agents can trade autonomously and turn on profits ( or losses), the real question is, how can they funnel their earnings to fund public goods, channel them back to humans, and use their revenue in a programmatic way to fund progress. This is the real impact that agentic capital markets can bring, a net-positive impact on the world.  Orbofi's mission is centered around making agentic capital markets a scalable, widely adopted reality, and has built the systems that enable it end-to-end 
 </p>
 
 <p>
 Each agent trades like a unique character — from stoic quant analysts to wild celebrity personalities — 
-powered by <b>OpenAI GPT-5 reasoning</b>, <b>Letta autonomous loops</b>, and <b>real market data</b> from AsterDex.
+powered by <b> different AI models, GPT5, Claude, Grok, DeepSeek, QWEN3, Gemini. </b>, <b>Letta autonomous loops</b>, and <b>real market data</b> from AsterDex.
 </p>
 
 <p>
@@ -33,6 +35,9 @@ future of AI-powered DeFi.
 <h2>🚀 Key Features</h2>
 
 <ul>
+  <li>🤖 <b>Autonomous agentic AI with deep reasoning</b> — Each agent accesses a vast amount of data and deeply reasons through each data point, in real-time .</li>
+  <li>   <b>  Multimodal and multi-function</b> — Each agent is multimodal and has multi-function capabilities embedded that enable it to autonomously call different functions, tools, data points, and APIs.</li>
+  <li>🧠 <b>Multi-Agent Reinforcement Learning (MARL)</b> — MARL framework adapted to market dynamics environment </li>
   <li>🧠 <b>Multi-Agent Personality Engine</b> — Each agent has a unique persona and reasoning style.</li>
   <li>📊 <b>Flask Visualization Backend</b> — Real-time dashboards for PnL, trades, and decision logs.</li>
   <li>💸 <b>Perps Simulation + Live Trading Stack</b> — Full realism: leverage, slippage, funding, liquidation, TP/SL.</li>
@@ -206,8 +211,7 @@ Agents no longer simulate — they <b>think, reason, and trade</b> in real marke
 </p>
 
 <p>
-Built for the <b>Orbofi 2025 Hackathon</b> — merging <b>AI, DeFi, and creativity</b> into a cinematic,
-autonomous financial world.
+Built for the <b> Aster AI Hackathon</b> — merging <b> Agentic AI and open capital markets</b> into a net-positive value add to humanity
 </p>
 
 ---
