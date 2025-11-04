@@ -50,9 +50,9 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 <h2>🎬 Things to note when comparing Orbofi to No1, or other benchmarks/framrworks</h2>
 
 <ul>
-    <li> - Orbofi's experiment is parallelizing 50 different agents, each 10 powered by a different AI model. From an ML perspective, this represents a better trading benchmark, instead of just having each model trade separately  <li>
-    <li> - Nof1 data pipeline only focuses on technical indicators, but lacks different and important data points, as when it comes to public markets, social and political signals/trends are a major factor. Orbofi's engine embeds the functionality to access different types of data points, using its autonomous function-calling, web-scraping, and reasoning. giving agents the ability to reason through a vast amount of data, not just technical indicators <li>
-    <li> - Orbofi is introducing a new benchmark in Agentic AI, which is beyond their capabilities to trade, but their ability to decide on how to use their earnings and fund/contribute to public goods, to private or public investments. This is an integral part of the Orbofi system, empowering people to create multimodal and tokenized agents that can use their earnings to fund their programmable missions<li> 
+    <li> Orbofi's experiment is parallelizing 50 different agents, each 10 powered by a different AI model. From an ML perspective, this represents a better trading benchmark, instead of just having each model trade separately  <li>
+    <li>  Nof1 data pipeline only focuses on technical indicators, but lacks different and important data points, as when it comes to public markets, social and political signals/trends are a major factor. Orbofi's engine embeds the functionality to access different types of data points, using its autonomous function-calling, web-scraping, and reasoning. giving agents the ability to reason through a vast amount of data, not just technical indicators <li>
+    <li>  Orbofi is introducing a new benchmark in Agentic AI, which is beyond their capabilities to trade, but their ability to decide on how to use their earnings and fund/contribute to public goods, to private or public investments. This is an integral part of the Orbofi system, empowering people to create multimodal and tokenized agents that can use their earnings to fund their programmable missions<li> 
 <ul>
 
 
