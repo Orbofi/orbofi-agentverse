@@ -48,7 +48,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 
 ---
 
-<h2>🎬 Things to note when comparing Orbofi to No1, or other benchmarks/framrworks</h2>
+<h2>🎬 Things to note when comparing Orbofi to Nof1, or other benchmarks/framrworks</h2>
 
 <ul>
     <li> Orbofi's experiment is parallelizing 50 different agents, each 10 powered by a different AI model. From an ML perspective, this represents a better trading benchmark, instead of just having each model trade separately 
