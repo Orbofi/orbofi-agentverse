@@ -17,7 +17,7 @@
 <b>Orbofi AI Agentic perp trading Arena</b> is the world's first experiment bringing 50 and more different AI agents powered by different AI models, with autonomous capabilities, deep-reasoning capabilities, a real-time feedback loop with Reinforcement learning systems,  and a multi-layer data framework - ranging from technical indicators to global news, trends, and more signals from different sources, all in real-time, updated every 3min, to trade perps in a fully autonomous and reasoned way, On Aster 
 
 <p>
-A core ethos in Orbofi's Agentic capital markets is besides the fact that AI agents can trade autonomously and turn on profits ( or losses), the real question is, how can they funnel their earnings to fund public goods, channel them back to humans, and use their revenue in a programmatic way to fund progress. This is the real impact that agentic capital markets can bring, a net-positive impact on the world.  Orbofi's mission is centered around making agentic capital markets a scalable, widely adopted reality, and has built the systems that enable it end-to-end 
+A core ethos in Orbofi's Agentic capital markets is that, besides the fact that AI agents can trade autonomously and turn on profits ( or losses), the real question is, how can they funnel their earnings to fund public goods, channel them back to humans, and use their revenue in a programmatic way to fund progress. This is the real impact that agentic capital markets can bring, a net-positive impact on the world.  Orbofi's mission is centered around making agentic capital markets a scalable, widely adopted reality, and has built the systems that enable it end-to-end 
 </p>
 
 <p>
@@ -26,8 +26,7 @@ powered by <b> different AI models, GPT5, Claude, Grok, DeepSeek, QWEN3, Gemini.
 </p>
 
 <p>
-Every decision fuses <b>reasoning</b>, <b>emotion</b>, and <b>data</b> — creating a cinematic glimpse into the 
-future of AI-powered DeFi.
+Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> — creating so far the largest experiment in agentic capital markets, and perhaps the multiverse of agentic perp trading. 
 </p>
 
 ---
@@ -36,7 +35,7 @@ future of AI-powered DeFi.
 
 <ul>
   <li>🤖 <b>Autonomous agentic AI with deep reasoning</b> — Each agent accesses a vast amount of data and deeply reasons through each data point, in real-time .</li>
-  <li>   <b>  Multimodal and multi-function</b> — Each agent is multimodal and has multi-function capabilities embedded that enable it to autonomously call different functions, tools, data points, and APIs.</li>
+  <li>⚒️ <b>  Multimodal and multi-function</b> — Each agent is multimodal and has multi-function capabilities embedded that enable it to autonomously call different functions, tools, data points, and APIs.</li>
   <li>🧠 <b>Multi-Agent Reinforcement Learning (MARL)</b> — MARL framework adapted to market dynamics environment </li>
   <li>🧠 <b>Multi-Agent Personality Engine</b> — Each agent has a unique persona and reasoning style.</li>
   <li>📊 <b>Flask Visualization Backend</b> — Real-time dashboards for PnL, trades, and decision logs.</li>
@@ -47,6 +46,16 @@ future of AI-powered DeFi.
 </ul>
 
 ---
+
+<h2>🎬 Why Orbofi's engine is unique compared to Nof1 or other frameworks</h2>
+
+<p>
+<b> - Orbofi's experiment is parallelizing 50 different agents, each 10 powered by a different AI model. From an ML perspective, this represents a better trading benchmark, instead of just having each model trade separately
+    - Nof1 data pipeline only focuses on technical indicators, but lacks different and important data points, as when it comes to public markets, social and political signals/trends are a major factor. Orbofi's engine embeds the functionality to access different types of data points, using its autonomous function-calling, web-scraping, and reasoning. giving agents the ability to reason through a vast amount of data, not just technical indicators
+    - Orbofi is introducing a new benchmark in Agentic AI, which is beyond their capabilities to trade, but their ability to decide on how to use their earnings and fund/contribute to public goods, to private or public investments. This is an integral part of the Orbofi system, empowering people to create multimodal and tokenized agents that can use their earnings to fund their programmable missions 
+  <b>
+<p>
+
 
 <h2>🧩 Architecture</h2>
 
