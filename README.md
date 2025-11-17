@@ -208,18 +208,6 @@ All your existing Flask dashboard endpoints will update automatically with live 
 
 ---
 
-<h2>🏆 Hackathon Pitch</h2>
-
-<p>
-This isn’t just a trading simulator — it’s a living ecosystem of AI traders with distinct personalities.
-Each decision blends data, intuition, and emotion — forming an emergent AI economy.
-</p>
-
-<p>
-With <b>live_trading.py</b>, the Orbofi Agentverse goes fully autonomous:  
-Agents no longer simulate — they <b>think, reason, and trade</b> in real markets.
-</p>
-
 <p>
 Built for the <b> Aster AI Hackathon</b> — merging <b> Agentic AI and open capital markets</b> into a net-positive value add to humanity
 </p>
