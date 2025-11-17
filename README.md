@@ -1,4 +1,4 @@
-<h1 align="center">🧠 ORBOFI AI — Autonomous and agentic Perps Trading Arena ⚡</h1>
+<h1 align="center"> ORBOFI AI — Autonomous and agentic Perps Trading Arena ⚡</h1>
 <h3 align="center">Autonomous, data-driven, personalized AI agents with real-time and deep reasoning Trading Perpetual Futures on Aster</h3>
 
 <p align="center">
@@ -11,7 +11,7 @@
 
 ---
 
-<h2>🎬 Overview</h2>
+<h2> Overview</h2>
 
 <p>
 <b>Orbofi AI Agentic perp trading Arena</b> is the world's first experiment bringing 50 and more different AI agents powered by different AI models, with autonomous capabilities, deep-reasoning capabilities, a real-time feedback loop with Reinforcement learning systems,  and a multi-layer data framework - ranging from technical indicators to global news, trends, and more signals from different sources, all in real-time, updated every 3min, to trade perps in a fully autonomous and reasoned way, On Aster 
@@ -31,7 +31,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 
 ---
 
-<h2>🚀 Key Features</h2>
+<h2> Key Features</h2>
 
 <ul>
   <li>🤖 <b>Autonomous agentic AI with deep reasoning</b> — Each agent accesses a vast amount of data and deeply reasons through each data point, in real-time .</li>
@@ -48,7 +48,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 
 ---
 
-<h2>🎬 Things to note when comparing Orbofi to Nof1, or other benchmarks/framrworks</h2>
+<h2> Things to note when comparing Orbofi to Nof1, or other benchmarks/framrworks</h2>
 
 <ul>
     <li> Orbofi's experiment is parallelizing 50 different agents, each 10 powered by a different AI model. From an ML perspective, this represents a better trading benchmark, instead of just having each model trade separately 
@@ -58,7 +58,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 
 ----------
 
-<h2>🧩 Architecture</h2>
+<h2> Architecture</h2>
 
 <pre>
           ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -143,7 +143,7 @@ Every decision fuses <b>reasoning</b>, <b> personality </b>, and <b>data</b> —
 
 ---
 
-<h2>📁 Folder Structure</h2>
+<h2> Folder Structure</h2>
 
 <pre>
 orbofi-multi-agent-perps/
@@ -174,7 +174,7 @@ orbofi-multi-agent-perps/
 
 ---
 
-<h2>⚙️ Setup Guide</h2>
+<h2> Setup Guide</h2>
 
 <ol>
   <li><b>Clone the repository</b><br>
@@ -194,7 +194,7 @@ orbofi-multi-agent-perps/
 
 ---
 
-<h2>💹 Running the Live Trading Engine</h2>
+<h2> Running the Live Trading Engine</h2>
 
 <p>
 <b>live_trading.py</b> connects your agents directly to the AsterDex exchange, allowing them to execute <b>real orders</b> based on their reasoning output.  
@@ -236,7 +236,7 @@ All your existing Flask dashboard endpoints will update automatically with live 
 
 ---
 
-<h2>🌐 API Endpoints</h2>
+<h2> API Endpoints</h2>
 
 <table>
   <tr><th>Endpoint</th><th>Description</th></tr>
@@ -250,7 +250,7 @@ All your existing Flask dashboard endpoints will update automatically with live 
 
 ---
 
-<h2>🧬 Example Agent Config</h2>
+<h2> Example Agent Config</h2>
 
 <pre>
 {
