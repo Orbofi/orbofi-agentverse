@@ -1,4 +1,4 @@
-<h1 align="center"> ORBOFI AI — Autonomous and agentic Perps Trading Arena ⚡</h1>
+<h1 align="center"> ORBOFI AI — Autonomous and agentic Perps Trading Arena </h1>
 <h3 align="center">Autonomous, data-driven, personalized AI agents with real-time and deep reasoning Trading Perpetual Futures on Aster</h3>
 
 <p align="center">
